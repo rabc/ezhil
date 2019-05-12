@@ -14,7 +14,7 @@
 			{{ .Content }}
 		</div>
 
-		{{- $.Scratch.Set "isDisqus" true -}}
+		{{- $.Scratch.Set "isDisqus" false -}}
 
 		{{- if and (isset .Params "type") (in (.Site.Params.disableDisqusTypes | default (slice "page")) .Params.type) -}}
 		{{- $.Scratch.Set "isDisqus" false -}}
@@ -30,6 +30,9 @@
 		{{- partial "disqus.html" . -}}
 		{{- end -}}
 	</div>
+	{{- with .Site.Params.Social -}}
+	<script>feather.replace()</script>
+	{{- end -}}
 	{{ partial "footer.html" . }}
 </body>
 </html>

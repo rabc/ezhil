@@ -23,7 +23,9 @@
 			{{- end -}}
 		</ul>
 	</div>
-
+{{- with .Site.Params.Social -}}
+<script>feather.replace()</script>
+{{- end -}}
 	{{ partial "footer.html" . }}
 </body>
 
